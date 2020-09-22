@@ -6,8 +6,9 @@ public class EmpWage {
 		//Auto-generated method stud
 		
 		//constants
-		int IS_FULL_TIME=1;
-		int EMP_WAGE_PER_HOUR=20;
+		final int IS_FULL_TIME=1;
+		final int IS_PART_TIME=2;
+		final int EMP_WAGE_PER_HOUR=20;
 		
 		//variables
 		int empWage=0;
@@ -16,6 +17,11 @@ public class EmpWage {
 	   //computation
 		double empCheck = Math.floor(Math.random()*10) % 3;
 		if(empCheck == IS_FULL_TIME)
+		{
+			empHours=8;
+			System.out.println("Employee is Present");
+		}
+		else if(empCheck == IS_PART_TIME)
 		{
 			empHours=8;
 			System.out.println("Employee is Present");
