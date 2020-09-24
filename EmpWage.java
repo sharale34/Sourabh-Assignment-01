@@ -30,7 +30,7 @@ public class EmpWage {
 			   
 		   case IS_FULL_TIME:
 			   System.out.println("Employee is Present & Part Time");
-			   empHours=8;
+			   empHours=4;
 			   break;
 			   
 		   default:
@@ -44,7 +44,7 @@ public class EmpWage {
 		}
 		else if(WORKHOURS_PER_MONTH/empHours >=DAYS_IN_MONTH && empHours!=0)
 		{
-			empWage= empHours * WORKHOURS_PER_MONTH * EMP_WAGE_PER_HOUR;
+			empWage= empHours * DAYS_IN_MONTH * EMP_WAGE_PER_HOUR;
 			System.out.println("Employee Wage for 20 days :"+empWage);
 		}
 
