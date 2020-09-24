@@ -42,7 +42,7 @@ public class EmpWage {
 		empWage= WORKHOURS_PER_MONTH * EMP_WAGE_PER_HOUR;
 		System.out.println("Employee Wage for 100 hrs :"+empWage);
 		}
-		else if(WORKHOURS_PER_MONTH/empHours >=DAYS_IN_MONTH && empHours!=0)
+		else if(WORKHOURS_PER_MONTH/empHours>=DAYS_IN_MONTH && empHours!=0)
 		{
 			empWage= empHours * WORKHOURS_PER_MONTH * EMP_WAGE_PER_HOUR;
 			System.out.println("Employee Wage for 20 days :"+empWage);
