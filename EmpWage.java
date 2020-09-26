@@ -47,6 +47,7 @@ public class EmpWage {
 		}
 		//daily wage calculation
 		empWage = empHours * EMP_WAGE_PER_HOUR;
+		//Tabular display of employee details
 		System.out.println("Day\tHours Worked\tTotal Wage");
 		while((hoursWorked + empHours) <= WORKHOURS_PER_MONTH && dayCount < DAYS_IN_MONTH)
 		{
@@ -71,7 +72,7 @@ public class EmpWage {
     	
     	EmpWage obj = new EmpWage();
     	int Total =obj.calculateWage();
-    	
+    	//Employee Total Wage Calculation
     	System.out.println("The Employee Total Wage :"+Total);
     }
 }
