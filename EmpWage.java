@@ -5,23 +5,14 @@ public class EmpWage {
 	//constants
 		public static final int IS_FULL_TIME=1;
 		public static final int IS_PART_TIME=2;
-		public static final int EMP_WAGE_PER_HOUR=20;
-		public static final int DAYS_IN_MONTH=20;
-		public static final int WORKHOURS_PER_MONTH=100;
-        int empWage = 0;
-        int dayCount = 0;
-        int empHours = 0;
-        int totalWage = 0;
-        int hoursWorked = 0;
-        
-        public int calculateWage()
+		
+        public static int calculateWage(String company , int hourWage , int monthDays , int monthWorkHours )
         {
-		//variables
-		int empWage = 0;
-		int empHours = 0;
-		int dayCount = 0;
-		int totalWage = 0;
-        int hoursWorked = 0;
+        	int empWage=0;
+        	int totalWage=0;
+        	int hoursWorked=0;
+        	int empHours=0;
+        	int dayCount=0;
 		
 	   //computation
 		int empCheck = (int) (Math.floor(Math.random()*10) % 3);
@@ -46,22 +37,22 @@ public class EmpWage {
 			   break;
 		}
 		//daily wage calculation
-		empWage = empHours * EMP_WAGE_PER_HOUR;
+		empWage = empHours * hourWage;
 		//Tabular display of employee details
-		System.out.println("Day\tHours Worked\tTotal Wage");
-		while((hoursWorked + empHours) <= WORKHOURS_PER_MONTH && dayCount < DAYS_IN_MONTH)
+		System.out.println("company\t\tDay\tHours Worked\tTotal Wage");
+		while((hoursWorked + empHours) <= monthWorkHours && dayCount < monthDays)
 		{
 			dayCount++;
 			hoursWorked += empHours;
 			totalWage += empWage;
-			System.out.println(" " + dayCount + " \t" + hoursWorked + " \t\t" + totalWage);
+			System.out.println(" " +company+ " \t" + dayCount + " \t" + hoursWorked + " \t\t" + totalWage);
 		}
-		if(hoursWorked < WORKHOURS_PER_MONTH && dayCount < DAYS_IN_MONTH)
+		if(hoursWorked < monthWorkHours && dayCount < monthDays)
 		{
 			dayCount++;
-			hoursWorked += (WORKHOURS_PER_MONTH - hoursWorked);
-			totalWage += (WORKHOURS_PER_MONTH - hoursWorked) * EMP_WAGE_PER_HOUR ;
-			System.out.println(" " + dayCount + " \t" + hoursWorked + " \t\t" + totalWage);
+			hoursWorked += (monthWorkHours - hoursWorked);
+			totalWage += (monthWorkHours - hoursWorked) * hourWage ;
+			System.out.println(" " +company+ " \t" + dayCount + " \t" + hoursWorked + " \t\t" + totalWage);
 		}
        return totalWage;
 	}
@@ -70,10 +61,9 @@ public class EmpWage {
     {
     	System.out.println("Welcome to the Employee Wage Computation Program");
     	
-    	EmpWage obj = new EmpWage();
-    	int Total =obj.calculateWage();
-    	//Employee Total Wage Calculation
-    	System.out.println("The Employee Total Wage :"+Total);
+    	calculateWage("Capgemini" , 20 , 20 , 100);
+    	calculateWage("Microsoft" , 40 , 20 , 100);
+    	calculateWage("Infosys" , 15 , 25 , 100);
     }
 }
 
