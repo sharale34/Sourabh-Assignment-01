@@ -6,10 +6,23 @@ public class EmpWage {
 		public static final int IS_FULL_TIME=1;
 		public static final int IS_PART_TIME=2;
 		
-        public static int calculateWage(String company , int hourWage , int monthDays , int monthWorkHours )
+		private final String company;
+		private final int hourWage;
+		private final int monthDays;
+		private final int monthWorkHours;
+		private int totalWage;
+		
+		public EmpWage(String company , int hourWage , int monthDays , int monthWorkHours)
+		{
+			this.company=company;
+			this.hourWage=hourWage;
+			this.monthDays=monthDays;
+			this.monthWorkHours=monthWorkHours;
+		}
+		
+        public void calculateWage()
         {
         	int empWage=0;
-        	int totalWage=0;
         	int hoursWorked=0;
         	int empHours=0;
         	int dayCount=0;
@@ -54,16 +67,24 @@ public class EmpWage {
 			totalWage += (monthWorkHours - hoursWorked) * hourWage ;
 			System.out.println(" " +company+ " \t" + dayCount + " \t" + hoursWorked + " \t\t" + totalWage);
 		}
-       return totalWage;
 	}
+        
+        
+        public String toString()
+        {
+        	return "Total Emp Wage Per Company "+company+" is : "+totalWage;
+        }
     public static void main(String[] args)
      // TODO Auto-generated method stub
     {
     	System.out.println("Welcome to the Employee Wage Computation Program");
     	
-    	calculateWage("Capgemini" , 20 , 20 , 100);
-    	calculateWage("Microsoft" , 40 , 20 , 100);
-    	calculateWage("Infosys" , 15 , 25 , 100);
+    	EmpWage Capgemini = new EmpWage("Capgemini" , 20 , 20 , 100);
+    	EmpWage Microsoft = new EmpWage("Microsoft" , 40 , 20 , 100);
+    	Capgemini.calculateWage();
+    	Microsoft.calculateWage();
+    	System.out.println(Capgemini);
+    	System.out.println(Microsoft);
     }
 }
 
