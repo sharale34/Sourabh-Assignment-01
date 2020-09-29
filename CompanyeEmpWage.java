@@ -14,6 +14,21 @@ public class CompanyeEmpWage {
 		this.monthDays=monthDays;
 		this.monthWorkHours=monthWorkHours;
 	}
+	public String getCompany() {
+		return company;
+	}
+	public int getHourWage() {
+		return hourWage;
+	}
+	public int getMonthDays() {
+		return monthDays;
+	}
+	public int getMonthWorkHours() {
+		return monthWorkHours;
+	}
+	public int getTotalWage() {
+		return totalWage;
+	}
 	public void setTotalWage(int totalWage)
 	{
 		this.totalWage=totalWage;

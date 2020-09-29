@@ -1,28 +1,29 @@
 package WageComp;
-
+import java.util.ArrayList;
 public class EmpWage {
 	
-	//constants
+	   //static variables
 		public static final int IS_FULL_TIME=1;
 		public static final int IS_PART_TIME=2;
 		
 		private int numOfCompany=0;
-		private CompanyeEmpWage[] companyEmpWageArray;
+		private ArrayList<CompanyeEmpWage> companyEmpWageList;
+
 		public EmpWage() 
 		{
-		 companyEmpWageArray = new CompanyeEmpWage[5];
+			companyEmpWageList = new ArrayList<>();
 		}
-        private void addCompanyEmpWage(String company , int hourWage , int monthDays , int monthWorkHours)
+        public void addCompanyEmpWage(String company , int hourWage , int monthDays , int monthWorkHours)
         {
-        	companyEmpWageArray[numOfCompany] = new CompanyeEmpWage( company , hourWage , monthDays , monthWorkHours);
-        	numOfCompany++;
+        	CompanyeEmpWage companyEmpWage = new CompanyeEmpWage(company , hourWage , monthDays , monthWorkHours);
+    		companyEmpWageList.add(companyEmpWage);
         }
-        private void computeWage()
+        public void computeWage()
         {
-        	for(int i = 0; i < numOfCompany; i++)
+        	for(CompanyeEmpWage company: companyEmpWageList)
         	{
-        		companyEmpWageArray[i].setTotalWage(this.computeWage(companyEmpWageArray[i]));
-        		System.out.println(companyEmpWageArray[i]);
+        		computeWage(company);
+    			System.out.println("Employee wage of the "+company.getCompany()+"is : "+company.getTotalWage());
         	}
         }
         	private int computeWage(CompanyeEmpWage companyeEmpWage) {
